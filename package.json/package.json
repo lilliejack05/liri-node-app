@@ -1,0 +1,29 @@
+{
+  "name": "liri-node-app",
+  "version": "1.0.0",
+  "description": "homework week 10",
+  "main": "liri.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+      "type": "git",
+       "url": "https://github.com/lilliejack05/liri-noode-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+  "url": "https://github.com/lilliejack05/liri-node-app/issues"
+  },
+  "homepage": "https://github.com/lilliejack05/liri-node-app#readme",
+  "dependencies":{
+   "dotev": "^5.0.1",
+   "file-system": "^2.2.2",
+   "node-spotify-api": "1.1.1",
+   "request": "^2.88.0",
+   "spotify": "0.3.0",
+   "twitter": "1.7.1"
+  },
+  "devDependencies": {}
+}
