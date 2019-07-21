@@ -1,0 +1,31 @@
+
+-----
+node liri.js concert-this michael jackson
+MICHAEL JACKSON has 0 new concert:
+-----
+node liri.js concert-this michael jackson
+MICHAEL JACKSON has 0 new concert:
+-----
+node liri.js concert-this michael jackson
+MICHAEL JACKSON has 0 new concert:
+-----
+node liri.js concert-this maroon five
+MAROON FIVE has 2 new concert:
+
+Venue: Curacao North Sea Jazz Festival
+Location: Willemstad, Curaçao/Netherlands Antilles
+Date: 08/31/2019
+
+Venue: Seminole Hard Rock Hotel & Casino - Hollywood, FL
+Location: Hollywood/United States
+Date: 10/25/2019
+------
+node liri.js movie-this love jones
+Title: Love Jones
+Release Year: 14 Mar 1997
+IMDB Rating: 7.5/10
+Rotten Tomatoes Rating: 67%
+Country/s Produced In: USA
+Language: English
+Plot: Darius Lovehall is a young black poet in Chicago who starts dating Nina Mosley, a beautiful and talented photographer. While trying to figure out if they've got a "love thing" or are just "...
+Actors: Larenz Tate, Nia Long, Isaiah Washington, Lisa Nicole Carson

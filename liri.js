@@ -3,7 +3,6 @@ require("dotenv").config();
 // creates a variable to hold the file keys.js
 var keys = require('./keys.js');
 var OMDBkey = "67cc3162";
-var BandsinTown = require ("https://app.swaggerhub.com/apis/Bandsintown/PublicAPI/3.0.0");
 var axios = require("axios");
 // create a variable to hold spotify npm package
 var Spotify = require("node-spotify-api");
@@ -16,14 +15,14 @@ var  fs = require("fs");
 var inquirer = require("inquirer");
 
 let count = 0;
-function liriAsks() {
+function liriSearch() {
   if (!process.argv[2]) {
     inquirer
       .prompt([{
         name: "whatAPI",
         message: "Welcome to Liri! What can I help you with today?",
         type: "list",
-        choices: ["Look up a movie", "Look up a song", "Look up a concert", "Dealer's Choice"]
+        choices: ["Look up a movie", "Look up a song", "Look up a concert", "take a chance"]
       }]).then(function (response) {
         count++;
         switch (response.whatAPI) {
@@ -33,13 +32,13 @@ function liriAsks() {
             return console.log("Type this: node liri.js + spotify-this-song + the song of your choice (minus the +)");
           case "Look up a concert":
             return console.log("Type this: node liri.js + concert-this + the artist of your choice (minus the +)");
-          case "Dealer's Choice":
+          case "take a chance":
             return console.log("Type this: node liri.js + do-what-it-says (minus the +)");
         }
       })
   }
 }
-liriAsks();
+liriSearch();
 //Capturing console input to determine which part of app to run
 let apiType = process.argv[2];
 let Search = process.argv.slice(3).join(" ");
@@ -74,7 +73,7 @@ switch (apiType) {
 function songFinder() {
   //Testing spotify
   spotify.search({
-      type: 'track',
+      type: 'Push It',
       query: Search,
       limit: 1,
     }).then(function (response) {
@@ -107,7 +106,7 @@ function songFinder() {
 };
 //function to search omdb
 function movieFinder() {
-  queryURL = "https://www.omdbapi.com/?t=" +  + "&y=&plot=short&apikey=trilogy";
+  queryURL = "https://www.omdbapi.com/?t=" + Search + "&y=&plot=short&apikey=trilogy";
   axios.get(queryURL)
     .then(function (response) {
 
@@ -118,8 +117,8 @@ function movieFinder() {
       console.log("Country/s Produced In: " + response.data.Country);
       console.log("Language: " + response.data.Language );
       console.log("Plot: " + response.data.Plot );
-      console.l0g("Actors: " + response.data.Actors);
-     });
+      console.log("Actors: " + response.data.Actors);
+     
       //clears search for logging 
       if (Search === "mr nobody") {
         Search = "";
@@ -140,13 +139,17 @@ function movieFinder() {
             return console.log(err);
           }
         })
-    }
+      })
+        .catch(function (err) {
+          console.log(err);
+       })
+      }
 //function to search bandsintown
 function bandFinder() {
   queryURL = "https://rest.bandsintown.com/artists/" + Search + "/events?app_id=codingbootcamp";
   axios.get(queryURL)
     .then(function (response) {
-      console.log("\n" + Search.toUpperCase() + " has " + response.data.length + " next concert:");
+      console.log("\n" + Search.toUpperCase() + " has " + response.data.length + " new concert:");
       fs.appendFile("log.txt", "\n-----\n" + "node liri.js " + apiType + " " + Search + "\n" + Search.toUpperCase() + " has " + response.data.length + " new concert:", function(err) {
         if (err) {
           return;
