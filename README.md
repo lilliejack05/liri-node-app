@@ -7,19 +7,18 @@ Spotify-this-song
 movie-this
 do-what-it-says
 Getting Started:
-Download the "screenshots" folder to access the animations of each command. This will allow you to better see how LIRI works with each given command.
 
-concert-this:
-This will search the Bands in Town Artist Events API for an artist and render the following information about each event to the terminal:
+In your command terminal type node and the name of the current file name here it is liri.js to run the above listed commands
 
+node liri.js concert-this (enter your artist/concert here)
 
+node liri.js spotify-this-song (enter your artist/song here)
 
-Artist(s)
-The song's name
-A preview link of the song from Spotify
-The album that the song is from
-movie-this:
-This will output the following information to your terminal/bash window:
+node liri.js movie-this (enter your movie search here)
+
+node liri.js do-what-it-says (enter your search for liri here)
+
+This will output the following information to your terminal/bash window: Check the Issues tab to see the command saved as a screen shot.
 
 
 
