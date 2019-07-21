@@ -1,6 +1,11 @@
 # liri-node-app
 LIRI is like iPhone's SIRI, however, while SIRI is a Speech Interpretation and Recognition Interface, LIRI is a Language InterprHave liri take in the following commands:
 
+node liri.js my-tweets
+
+This will show your last 20 tweets and when they were created at in your terminal/bash window.
+node liri.js spotify-this-song "song name here"
+
 This will display artist, song name, album, and preview link 1.Default to “Ace of Base”
 node liri.js movie-this "movie name here"
 
